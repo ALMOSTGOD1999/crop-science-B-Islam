@@ -1,9 +1,9 @@
 {
   "name": "crop-science-b-islam",
-  "pages_build_output_dir": "./dist",
+  "main": "dist/server/server.js",
   "compatibility_date": "2024-11-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist"
+    "directory": "dist/client"
   }
 }
