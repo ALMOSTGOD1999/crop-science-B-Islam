@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 const navigation = [
   { label: "Home", to: "/" },
@@ -86,6 +86,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
           </div>
           <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">© 2026 Baharul Islam</span>
         </div>
+        <div className="border-t border-border/40 py-4">
+          <div className="site-container flex justify-center">
+            <TypewriterCredit />
+          </div>
+        </div>
       </footer>
     </div>
   );
@@ -107,4 +112,32 @@ export function PageIntro({ eyebrow, title, description }: { eyebrow: string; ti
 
 export function ArrowLink({ children, to = "/contact" }: { children: ReactNode; to?: "/" | "/products" | "/solutions" | "/about" | "/contact" }) {
   return <Link to={to} className="text-link">{children}<ArrowUpRight size={15} aria-hidden="true" /></Link>;
+}
+
+function TypewriterCredit() {
+  const text = "crafted by Incodent";
+  const [displayed, setDisplayed] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayed((prev) => prev + text[index]);
+        setIndex((prev) => prev + 1);
+      }, 80);
+      return () => clearTimeout(timer);
+    }
+  }, [index, text]);
+
+  return (
+    <a
+      href="https://www.incodent.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground hover:text-foreground transition-colors"
+    >
+      {displayed}
+      <span className="animate-pulse" aria-hidden="true">|</span>
+    </a>
+  );
 }
