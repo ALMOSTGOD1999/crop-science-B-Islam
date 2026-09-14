@@ -334,49 +334,50 @@
   .reveal-delay-3 { animation-delay: 320ms; }
   .reveal-delay-4 { animation-delay: 420ms; }
   .fade-out { animation: fade-out 400ms ease 2s forwards; }
+}
 
-  @media (max-width: 900px) {
-    .hero-layout, .protection-section, .company-band-inner, .solutions-feature, .about-story, .contact-layout { grid-template-columns: 1fr; }
-    .hero-layout { padding-top: 3rem; }
-    .hero-products { order: -1; height: 22rem; }
-    .hero-copy { margin-top: 1rem; }
-    .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .solution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .company-band-inner { align-items: start; }
-    .about-story { gap: 2rem; }
-    .contact-layout { gap: 2rem; }
-    .leader-card { flex-direction: column; text-align: center; gap: 1.5rem; }
-    .leader-photo { width: 12rem; height: 12rem; }
-  }
-  @media (max-width: 600px) {
-    .site-container { width: min(100% - 2rem, 75rem); }
-    .brand-tag { display: none; }
-    .hero-layout { min-height: auto; padding-block: 3rem 4rem; }
-    .hero-products { height: 19rem; }
-    .hero-product { width: 7.7rem; }
-    .hero-product-left { left: 0; }
-    .hero-product-right { right: 0; }
-    .hero-product-center { width: 5.7rem; }
-    .hero-title { font-size: clamp(3.4rem, 18vw, 5rem); }
-    .hero-lede { font-size: 0.95rem; }
-    .section-heading-row, .catalog-toolbar, .home-contact { align-items: start; flex-direction: column; }
-    .content-section, .protection-section, .inner-page, .home-contact { padding-block: 3.5rem; }
-    .product-grid, .solution-grid, .principles-grid, .about-metrics { grid-template-columns: 1fr 1fr; }
-    .about-metrics div:nth-child(2) { border-right: 0; }
-    .about-metrics div:nth-child(3), .about-metrics div:nth-child(4) { border-top: 1px solid var(--color-border); }
-    .form-grid { grid-template-columns: 1fr; }
-    .solutions-feature-copy { padding: 1.5rem; }
-    .solutions-feature-copy h2 { font-size: 2.1rem; }
-    .welcome-product-one { left: 1%; }
-    .welcome-product-three { right: 1%; }
-    .welcome-product-two { left: 5%; }
-    .welcome-product-four { right: 5%; }
-    .welcome-product { width: 5rem; }
-    .welcome-product-two, .welcome-product-four { width: 4rem; }
-    .about-story { gap: 1.5rem; }
-    .leader-card { gap: 1.5rem; }
-    .leader-photo { width: 10rem; height: 10rem; }
-  }
+@media (max-width: 900px) {
+  .hero-layout, .protection-section, .company-band-inner, .solutions-feature, .about-story, .contact-layout { grid-template-columns: 1fr; }
+  .hero-layout { padding-top: 3rem; }
+  .hero-products { order: -1; height: 22rem; }
+  .hero-copy { margin-top: 1rem; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .solution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .company-band-inner { align-items: start; }
+  .about-story { gap: 2rem; }
+  .contact-layout { gap: 2rem; }
+  .leader-card { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .leader-photo { width: 12rem; height: 12rem; }
+}
+
+@media (max-width: 600px) {
+  .site-container { width: min(100% - 2rem, 75rem); }
+  .brand-tag { display: none; }
+  .hero-layout { min-height: auto; padding-block: 3rem 4rem; }
+  .hero-products { height: 19rem; }
+  .hero-product { width: 7.7rem; }
+  .hero-product-left { left: 0; }
+  .hero-product-right { right: 0; }
+  .hero-product-center { width: 5.7rem; }
+  .hero-title { font-size: clamp(3.4rem, 18vw, 5rem); }
+  .hero-lede { font-size: 0.95rem; }
+  .section-heading-row, .catalog-toolbar, .home-contact { align-items: start; flex-direction: column; }
+  .content-section, .protection-section, .inner-page, .home-contact { padding-block: 3.5rem; }
+  .product-grid, .solution-grid, .principles-grid, .about-metrics { grid-template-columns: 1fr 1fr; }
+  .about-metrics div:nth-child(2) { border-right: 0; }
+  .about-metrics div:nth-child(3), .about-metrics div:nth-child(4) { border-top: 1px solid var(--color-border); }
+  .form-grid { grid-template-columns: 1fr; }
+  .solutions-feature-copy { padding: 1.5rem; }
+  .solutions-feature-copy h2 { font-size: 2.1rem; }
+  .welcome-product-one { left: 1%; }
+  .welcome-product-three { right: 1%; }
+  .welcome-product-two { left: 5%; }
+  .welcome-product-four { right: 5%; }
+  .welcome-product { width: 5rem; }
+  .welcome-product-two, .welcome-product-four { width: 4rem; }
+  .about-story { gap: 1.5rem; }
+  .leader-card { gap: 1.5rem; }
+  .leader-photo { width: 10rem; height: 10rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
