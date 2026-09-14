@@ -18,16 +18,20 @@ export const herbicideProduct: Product = { name: "VitaClear 480 SL", category: "
 export const fungicideProduct: Product = { name: "CropGuard 750 WP", category: "Fungicide", crops: "Fruit · Vegetables", size: "500 g", image: fungicide, tone: "accent" };
 export const secondaryInsecticideProduct: Product = { name: "PestAway 20 EC", category: "Insecticide", crops: "Cereals · Pulses", size: "500 ml", image: insecticide, tone: "primary" };
 
-const generatedProducts: Product[] = Array.from({ length: 77 }, (_, i) => ({
+const categories = ["Insecticide", "Herbicide", "Fungicide"] as const;
+const cropOptions = ["Paddy · Cotton", "Broadleaf · Maize", "Fruit · Vegetables", "Cereals · Pulses"] as const;
+const sizeOptions = ["100 ml", "250 ml", "500 ml", "1 L"] as const;
+
+const generatedProducts: Product[] = Array.from({ length: 77 }, (_, i): Product => ({
   name: `Product ${i + 1}`,
-  category: ["Insecticide", "Herbicide", "Fungicide"][i % 3],
-  crops: ["Paddy · Cotton", "Broadleaf · Maize", "Fruit · Vegetables", "Cereals · Pulses"][i % 4],
-  size: ["100 ml", "250 ml", "500 ml", "1 L"][i % 4],
+  category: categories[i % 3]!,
+  crops: cropOptions[i % 4]!,
+  size: sizeOptions[i % 4]!,
   image: `/product-${i + 1}.jpeg`,
   tone: i % 3 === 2 ? "accent" : "primary",
 }));
 
-export const products: Product[] = [insecticideProduct, herbicideProduct, fungicideProduct, secondaryInsecticideProduct, ...generatedProducts];
+export const products: Product[] = [...generatedProducts];
 
 export function ProductImage({ product, priority = false, className = "" }: { product: Product; priority?: boolean; className?: string }) {
   return (
@@ -173,7 +177,7 @@ function playGrowthSound(audioContext: AudioContext) {
   for (let step = 0; step < 42; step += 1) {
     const stepTime = now + 10.5 + step * 0.42;
     if (stepTime > end - 6) break;
-    const frequency = arpNotes[(step * 3 + Math.floor(step / 7)) % arpNotes.length];
+    const frequency = arpNotes[(step * 3 + Math.floor(step / 7)) % arpNotes.length]!;
     scheduleNote(audioContext, master, frequency, stepTime, 0.55, 0.1, step % 4 === 0 ? "triangle" : "sine");
   }
 
